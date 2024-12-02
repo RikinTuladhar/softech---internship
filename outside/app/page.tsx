@@ -5,13 +5,7 @@ import { useState } from "react";
 export default function Home() {
   return (
     <div className="w-full relative">
-      <div className="w-[35rem] fixed bottom-10 shadow-lg  left-10 px-10 flex justify-between items-center rounded-md h-[5rem] bg-white text-primary">
-        <div className="text-[1.9rem]">Outside</div>
-        <div className="flex gap-x-5 text-[1.2rem]">
-          <p className="text-[#262424]">Menu</p>
-          <p className="text-[#ede9e5] bg-[#262424] rounded-2xl px-[0.5rem] py-[0.1rem]">Contact</p>
-        </div>
-      </div>
+      {navBar()}
       <div className="w-full px-4 md:px-20 mt-10 min-h-[100vh] ">
         <section className="pt-5 md:pt-16">
           {headerSection()}
@@ -27,6 +21,16 @@ export default function Home() {
       {footer()}
     </div>
   );
+}
+
+function navBar() {
+  return <div className="w-[35rem] fixed bottom-10 shadow-lg  left-10 px-10 flex justify-between items-center rounded-md h-[5rem] bg-white text-primary">
+    <div className="text-[1.9rem]">Outside</div>
+    <div className="flex gap-x-5 text-[1.2rem]">
+      <p className="text-[#262424]">Menu</p>
+      <p className="text-[#ede9e5] bg-[#262424] rounded-2xl px-[0.5rem] py-[0.1rem]">Contact</p>
+    </div>
+  </div>;
 }
 
 function footer() {
