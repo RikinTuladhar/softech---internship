@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { easeIn, motion } from "framer-motion";
 import HoverText from "@/components/hoverText/HoverText";
 import getTime from "@/util/getDate";
 export default function Home() {
@@ -107,7 +107,21 @@ function seventhSection() {
   return (
     <section className="w-full py-2 md:py-10 min-h-[80vh] bg-background">
       <div className="w-full rounded h-[60vh] md:h-[80vh] overflow-hidden ">
-        <img
+        <motion.img
+         initial={{
+          opacity: 0.3,
+          scaleX: 0.8,
+          y: 20,
+        }}
+        viewport={{ once: true }}
+        whileInView={{
+          opacity: 1,
+          scaleX: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 1,
+        }}
           src="/images/Home_Company.avif"
           className="w-full h-full md:h-[100vh] rounded object-cover  object-center md:object-bottom"
           alt="image of home"
@@ -155,14 +169,28 @@ function fifthSection() {
     <section className="w-full mt-14 space-y-12 my-5 md:my-10 md:space-y-20 md:mt-5 min-h-[100vh]">
       {datas &&
         datas.map((data, i) => (
-          <div
+          <motion.div
+          initial={{
+      
+            scaleX: 0.9,
+            y: 20,
+          }}
+          viewport={{ once: true }}
+          whileInView={{
+            
+            scaleX: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
             key={i}
-            className="w-full block md:flex space-y-2 md:space-y-0   md:h-[80vh] gap-x-0 md:gap-x-20 bg-background"
+            className="w-full block rounded-md md:flex space-y-2 md:space-y-0   md:h-[80vh] gap-x-0 md:gap-x-20 bg-background"
           >
-            <div className="w-full md:w-[70%]">
+            <div className="w-full rounded-md overflow-hidden  md:w-[70%]">
               <img
                 src={data.imgPath}
-                className="rounded-md w-full h-full"
+                className="rounded-md hover:scale-105 transition-all duration-500 w-full h-full"
                 alt="img of item"
               />
             </div>
@@ -172,7 +200,7 @@ function fifthSection() {
                 <span className="text-primary">Mauj →</span>
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
     </section>
   );
@@ -199,24 +227,49 @@ function fourthSection() {
 
 function headerSection() {
   return (
-    <h1 className="font-sans pr-0 md:pr-56 text-[2.5rem] leading-none md:leading-none whitespace-pre-wrap md:text-[4rem] text-[#262424]">
+    <motion.h1
+      initial={{
+        y: 50,
+        opacity: 0,
+      }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 1,
+        ease: "easeOut",
+      }}
+      className="font-sans pr-0 md:pr-56 text-[2.5rem] leading-none md:leading-none whitespace-pre-wrap md:text-[4rem] text-[#262424]"
+    >
       Outside is an impact-driven design & technology studio born in Nepal,
       creating globally.
-    </h1>
+    </motion.h1>
   );
 }
 
 function secondSection() {
   return (
-    <section className="video mt-16 md:mt-20  rounded w-full h-auto md:h-[700px]">
-      <video
+    <section className="video mt-16 md:mt-20 rounded w-full h-auto md:h-[700px]">
+      <motion.video
+        initial={{
+          opacity: 0,
+          scaleX: 0.8,
+          y: 100,
+        }}
+        animate={{
+          opacity: 1,
+          scaleX: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 1,
+          ease: "easeOut",
+        }}
         src="/videos/video1.mp4"
-        className="w-full rounded  h-full"
+        className="origin-center w-full rounded h-full"
         playsInline
         loop
         autoPlay
         muted
-      ></video>
+      ></motion.video>
     </section>
   );
 }

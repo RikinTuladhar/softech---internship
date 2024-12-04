@@ -21,7 +21,7 @@ const HoverText = ({title}) => {
         </span>
 
         {/* Shrinking underline */}
-        <div className="absolute bottom-0 right-0 w-full h-[1px] bg-primary transition-all duration-300  group-hover:left-auto group-hover:right-0"></div>
+        <div className="absolute bottom-0  w-full h-[1px] bg-primary transition-all duration-300   "></div>
       </button>
     </div>
   );
