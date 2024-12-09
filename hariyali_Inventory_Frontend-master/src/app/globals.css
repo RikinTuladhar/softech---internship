@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+} */
+
+@layer base {
+  .labelStyle {
+    @apply block  text-sm font-medium leading-6 text-gray-900;
+  }
+
+  .labelText {
+    @apply text-lg font-medium;
+  }
+
+  .inputStyle {
+    @apply w-full px-2 py-2 rounded border
+        border-gray-300 text-sm  focus:outline-none focus-within:border-2 focus:border-[#1b7a1b]  disabled:cursor-not-allowed;
+  }
+
+  .cancelButton {
+    @apply bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 shadow-md disabled:bg-gray-300 disabled:cursor-not-allowed;
+  }
+
+  .submitButton {
+    @apply bg-green-600 text-white px-6 py-2 hover:bg-green-700 rounded shadow-md disabled:bg-gray-300 disabled:cursor-not-allowed;
+  }
+
+  .selectStyle {
+    @apply w-full px-0 py-1 text-sm rounded-md border border-gray-300 focus:outline-none focus:border-[#366f36];
+  }
+
+  .tableBorder {
+    @apply px-3 py-2 text-lg  border border-black;
+  }
+
+  .addButtonStyle {
+    @apply text-white font-bold rounded-md shadow-md bg-green-600 px-4 py-2;
+  }
+  .renderButtonContainer {
+    @apply flex gap-6 items-center justify-center;
+  }
+  .renderButtonEdit {
+    @apply bg-green-600 text-white rounded hover:bg-green-700 shadow-lg px-6 py-2 disabled:bg-gray-400 disabled:cursor-not-allowed;
+  }
+  .renderButtonDelete {
+    @apply bg-red-600 text-white rounded shadow-lg px-6 py-2 hover:bg-red-700;
+  }
+  .renderButtonView {
+    @apply bg-blue-600 text-white rounded shadow-lg px-6 py-2 hover:bg-blue-700;
+  }
+  .rounded {
+    border-radius: 22px;
+  }
+  .roundedlg {
+    border-radius: 30px;
+  }
+  .sidebar {
+    /* Styles for the element with class .sidebar */
+    scrollbar-width: thin; /* Specifies the width of the scrollbar */
+    scrollbar-color: #999999 transparent; /* Specifies the color of the scrollbar track and thumb */
+  }
+
+  .sidebar::-webkit-scrollbar {
+    /* Styles for the scrollbar in WebKit browsers (like Chrome and Safari) */
+    background: #999999; /* Specifies the background color of the scrollbar */
+    width: 3px; /* Specifies the width of the scrollbar */
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    /* Styles for the thumb of the scrollbar in WebKit browsers */
+    scrollbar-color: #999999; /* Specifies the color of the scrollbar thumb */
+    border-radius: 10px; /* Specifies the border radius of the scrollbar thumb */
+  }
+  .spinner {
+    position: relative;
+    width: 15.7px;
+    height: 15.7px;
+  }
+
+  .spinner div {
+    animation: spinner-4t3wzl 1.875s infinite backwards;
+    background-color: #36f322;
+    border-radius: 50%;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  .spinner div:nth-child(1) {
+    animation-delay: 0.15s;
+    background-color: rgba(40, 227, 20, 0.6);
+  }
+
+  .spinner div:nth-child(2) {
+    animation-delay: 0.3s;
+    background-color: rgba(40, 227, 20, 0.6);
+  }
+
+  .spinner div:nth-child(3) {
+    animation-delay: 0.45s;
+    background-color: rgba(40, 227, 20, 0.6);
+  }
+
+  .spinner div:nth-child(4) {
+    animation-delay: 0.6s;
+    background-color: rgba(40, 227, 20, 0.6);
+  }
+
+  .spinner div:nth-child(5) {
+    animation-delay: 0.75s;
+    background-color: rgba(40, 227, 20, 0.6);
+  }
+
+  @keyframes spinner-4t3wzl {
+    0% {
+      transform: rotate(0deg) translateY(-200%);
+    }
+
+    60%,
+    100% {
+      transform: rotate(360deg) translateY(-200%);
+    }
+  }
+  .borderRadius {
+    border-radius: 12px;
+  }
+  .borderRadiusInput {
+    border-radius: 8px;
+  }
+}
