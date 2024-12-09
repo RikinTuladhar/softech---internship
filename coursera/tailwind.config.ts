@@ -12,7 +12,8 @@ export default {
         background: "#FFFFFF",
         foreground: "#0F1114",
         primary:"#0056D2",
-        secondary:"#7b8296"
+        secondary:"#7b8296",
+        dim:"#5b6780"
       },
     },
   },

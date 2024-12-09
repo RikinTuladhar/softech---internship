@@ -70,10 +70,10 @@ function MobileView(
           </div>
           <div className="w-full absolute  space-y-2 bottom-0  px-3 py-4 ">
             <div>
-             <PrimaryButton/>
+             <PrimaryButton className="" title="Join For Free"/>
             </div>
             <div>
-              <SecondaryButton/>
+              <SecondaryButton title="Log In"/>
             </div>
           </div>
         </div>
