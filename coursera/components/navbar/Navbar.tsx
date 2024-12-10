@@ -70,10 +70,10 @@ function MobileView(
           </div>
           <div className="w-full absolute  space-y-2 bottom-0  px-3 py-4 ">
             <div>
-             <PrimaryButton className="" title="Join For Free"/>
+              <PrimaryButton className="" title="Join For Free" />
             </div>
             <div>
-              <SecondaryButton title="Log In"/>
+              <SecondaryButton title="Log In" />
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@ function MobileView(
 
 function DesktopView() {
   return (
-    <nav className="w-full border flex-wrap flex items-center py-2 justify-between px-10 sticky top-0 bg-background">
+    <nav className="w-full border z-50 flex-wrap flex items-center py-2 justify-between px-10 sticky top-0 bg-background">
       <div className="md:flex flex-wrap items-center gap-x-3">
         <div className="pr-2">
           <img src="logo.svg" className="w-10 md:w-28 h-10" alt="Logo" />

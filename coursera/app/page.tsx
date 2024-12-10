@@ -3,12 +3,11 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 import Navbar from "@/components/navbar/Navbar";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { space } from "postcss/lib/list";
+import RecommendCertificateCard from "@/components/card/RecommendCertificateCard";
+import role from "@/types/role";
+import Card from "@/components/card/Card";
+
 export default function Home() {
-  interface role {
-    id: number;
-    title: string;
-  }
   const roles: role[] = [
     {
       id: 1,
@@ -49,75 +48,125 @@ export default function Home() {
 
       {firstSecion()}
       {secondSection()}
-      <section className="bg-background px-10 w-full min-h-[100vh] py-5 ">
-        <div className="w-full flex  items-center gap-x-8 py-5">
-          <h1 className="text-[30px] text-[#0f1114] font-bold">
-            Launch a new career in as little as 6 months
-          </h1>
-          <button className="text-sm flex justify-center items-center gap-x-2 text-[#0f1114]">
-            <span>View all roles </span>
-            <ArrowRight size={20} />{" "}
-          </button>
+      {thirdSection(roles)}
+      <section className="w-full px-10 min-h-[30rem] py-[20px] bg-background]">
+        <div className="top headings">
+          <h3 className="text-[20px] font-semibold">
+            Specialization and Professional Certificates
+          </h3>
+          <h1 className="text-[44px]">Most Popular Certificates</h1>
+          <p className="text-[20px]">
+            Explore our most popular programs, get job-ready for an in-demand
+            career.
+          </p>
         </div>
-        <div className="w-full flex items-center justify-between min-h-[10vh]">
-          {roles.map((role, i) => (
-            <h2
-              className="relative cursor-pointer text-sm hover:bg-blue-100 px-1 text-[#0f1114] py-4"
-              key={i}
-            >
-              {role.title}
-              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-green-500 transition-all duration-300 hover:w-full"></span>
-            </h2>
+        <div className="py-4 grid-cols-4 grid gap-8">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <Card key={i} />
           ))}
         </div>
-        <div className="w-full h-[5px] bg-slate-400"></div>
-        <div className="w-full min-h-[100vh] border  py-10 my-5  rounded-lg  px-10 bg-green-300">
-          <div className="w-full">
-            <h1 className="text-[32px] font-bold">Digital Marketer</h1>
-            <p className="text-sm text-[#5b6780]">
-              Define and develop digital strategies to deliver business growth
-              through online channels
-            </p>
-            <div className="py-4 text-sm space-y-5">
-              <h2>Median Salary</h2>
-              <div className="flex gap-5">
-                <div className="w-[20rem] rounded-lg text-[#5b6780] px-2 flex items-center h-[2rem] bg-[#E8EEF7]">
-                  <p>All Occupations</p>
-                </div>
-                <p className="text-sm text-[#5b6780]">$320,233*</p>
-              </div>
-              <div className="flex gap-5">
-                <div className="w-[30rem] text-white px-2 flex items-center text-sm rounded-lg h-[2rem] bg-[#340385]">
-                  <p>Digital Marketer</p>
-                </div>
-                <p className="text-[#5b6780] text-sm">$320,233**</p>
-              </div>
-            </div>
-
-            <div className="w-full h-[1px] bg-[#5b6780]"></div>
-            <div className="py-5 space-y-2 font-semibold text-xs">
-              <div className="flex space-x-1 ">
-                <p className="text-dim">Job Opening:</p>
-                <p>81,468**</p>
-              </div>
-              <div className="flex space-x-1">
-                <p className="text-dim">Job Opening:</p>
-                <p>81,468**</p>
-              </div>
-            </div>
-
-            <div className="w-full min-h-28">
-              <h3>Recommended Professional Certificates</h3>
-              <div className="w-[380px] h-[490px] bg-red-300">
-
-              </div>
-            </div>
-
-
+        <div className="flex gap-2">
+          <div className="w-[150px]">
+            <PrimaryButton title="Show 8 more" className="" />
+          </div>
+          <div className="w-[150px]">
+            <SecondaryButton title="View All"  />
           </div>
         </div>
       </section>
     </div>
+  );
+}
+
+function thirdSection(roles: role[]) {
+  return (
+    <section className="bg-background px-10 w-full min-h-[100vh] py-5 ">
+      <div className="w-full flex  items-center gap-x-8 py-5">
+        <h1 className="text-[30px] text-[#0f1114] font-bold">
+          Launch a new career in as little as 6 months
+        </h1>
+        <button className="text-sm flex justify-center items-center gap-x-2 text-[#0f1114]">
+          <span>View all roles </span>
+          <ArrowRight size={20} />{" "}
+        </button>
+      </div>
+      <div className="w-full flex items-center justify-between min-h-[10vh]">
+        {roles.map((role, i) => (
+          <h2
+            className="relative cursor-pointer text-sm hover:bg-blue-100 px-1 text-[#0f1114] py-4"
+            key={i}
+          >
+            {role.title}
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-green-500 transition-all duration-300 hover:w-full"></span>
+          </h2>
+        ))}
+      </div>
+      <div className="w-full h-[5px] bg-slate-400"></div>
+      <div className="w-full min-h-[100vh] border  py-10 my-5  rounded-lg  px-10 bg-background">
+        <div className="w-full">
+          <h1 className="text-[32px] font-bold">Digital Marketer</h1>
+          <p className="text-sm text-[#5b6780]">
+            Define and develop digital strategies to deliver business growth
+            through online channels
+          </p>
+          <div className="py-4 text-sm space-y-5">
+            <h2>Median Salary</h2>
+            <div className="flex gap-5">
+              <div className="w-[20rem] rounded-lg text-[#5b6780] px-2 flex items-center h-[2rem] bg-[#E8EEF7]">
+                <p>All Occupations</p>
+              </div>
+              <p className="text-sm text-[#5b6780]">$320,233*</p>
+            </div>
+            <div className="flex gap-5">
+              <div className="w-[30rem] text-white px-2 flex items-center text-sm rounded-lg h-[2rem] bg-[#340385]">
+                <p>Digital Marketer</p>
+              </div>
+              <p className="text-[#5b6780] text-sm">$320,233**</p>
+            </div>
+          </div>
+
+          <div className="w-full h-[1px] bg-[#5b6780]"></div>
+          <div className="py-5 space-y-2 font-semibold text-xs">
+            <div className="flex space-x-1 ">
+              <p className="text-dim">Job Opening:</p>
+              <p>81,468**</p>
+            </div>
+            <div className="flex space-x-1">
+              <p className="text-dim">Job Opening:</p>
+              <p>81,468**</p>
+            </div>
+          </div>
+
+          <div className="w-full min-h-28">
+            <h3 className="py-5 font-bold">
+              Recommended Professional Certificates
+            </h3>
+            <div className="w-full min-h-400 py-2 grid grid-cols-3 gap-2 ">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <RecommendCertificateCard key={i} />
+              ))}
+            </div>
+            <div className="w-full flex items-center gap-5 my-8  min-h-[15vh]">
+              <div className="w-[100px]">
+                <img
+                  src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/27pQhthyhIEPsaxSlr0LFa/774f94e7410035dc3713e3d6ab256fd3/hillary_testimonial_image.jpg?auto=format%2Ccompress&dpr=1&h=136"
+                  alt="image of girl"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="text-sm text-secondary">
+                <p>
+                  "After a year of taking courses on Coursera, I can happily say
+                  that I have become a confident and aspiring entrepreneur and a
+                  better marketing and advertising professional."
+                </p>
+                <p>– Hillary G.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
