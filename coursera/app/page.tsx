@@ -6,6 +6,8 @@ import { ArrowRight } from "lucide-react";
 import RecommendCertificateCard from "@/components/card/RecommendCertificateCard";
 import role from "@/types/role";
 import Card from "@/components/card/Card";
+import PopularCard from "@/components/card/PopularCard";
+import ExploreCard from "@/components/card/ExploreCard";
 
 export default function Home() {
   const roles: role[] = [
@@ -49,32 +51,374 @@ export default function Home() {
       {firstSecion()}
       {secondSection()}
       {thirdSection(roles)}
-      <section className="w-full px-10 min-h-[30rem] py-[20px] bg-background]">
-        <div className="top headings">
-          <h3 className="text-[20px] font-semibold">
-            Specialization and Professional Certificates
-          </h3>
-          <h1 className="text-[44px]">Most Popular Certificates</h1>
-          <p className="text-[20px]">
-            Explore our most popular programs, get job-ready for an in-demand
-            career.
-          </p>
+      {forthSection()}
+      {fifthSection()}
+      {sixthSection()}
+      {seventhSection()}
+      {eightSection()}
+      {ninthSection()}
+      {TenthSection()}
+      {elevnthSection()}
+      {twelvethSection()}
+      {thirtheenSection()}
+      {fourthteenSection()}
+    </div>
+  );
+}
+
+function fourthteenSection() {
+  return <section className="py-10 px-10  bg-background    w-full">
+    <div className="flex px-12 h-[135vh] justify-between items-center">
+      <div className="w-[50%] h-full ">
+        <img
+          src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera_assets.s3.amazonaws.com/front-page-rebrand/secondary-consumer-cta/Image-Next-Step.png?auto=format%2Ccompress&dpr=1&w=471&h=330&q=40"
+          alt="image of girl"
+          className="w-full " />
+      </div>
+      <div className="w-[50%] flex flex-col gap-y-4 h-full px-24 pt-10 ">
+        <h1 className="text-[44px] font-semibold ">
+          Take the next step toward your personal and professional goals
+          with Coursera.
+        </h1>
+        <span className="text-[16px]">
+          Join now to receive personalized recommendations from the full
+          Coursera catalog.
+        </span>
+        <div className="w-[200px]">
+          <PrimaryButton className="" title="Join for Free" />
         </div>
-        <div className="py-4 grid-cols-4 grid gap-8">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <Card key={i} />
+      </div>
+    </div>
+    <div className="w-full  h-[1px] bg-secondary"></div>
+    <div className="text-secondary  space-y-1  pt-8 text-xs">
+      <div>
+        <span>
+          * Employment, Wages, and Projected Change in Employment by Typical
+          Entry-level Education : U.S. Bureau of Labor Statistics. Sept.
+          2022, www.bls.gov/emp/tables/education-summary.htm{" "}
+        </span>
+      </div>
+      <div>
+        <span>
+          ** Median salary and job opening data are sourced from United
+          States Lightcast™ Job Postings Report. Data for job roles relevant
+          to featured programs (7/1/2022 - 6/30/2023) Median salary (median
+          with 0-2 years experience for UX Designer) and job opening data
+          are sourced from United States Lightcast™ Job Postings Report.
+          Data for job roles relevant to featured programs (7/1/2022 -
+          6/30/2023)
+        </span>
+      </div>
+      <div>
+        <span>
+          *** Growth rate data is sourced from United States Lightcast™ Job
+          Postings Report. Data for job roles relevant to featured programs
+          (7/1/2022 - 6/30/2023)
+        </span>
+      </div>
+    </div>
+  </section>;
+}
+
+function thirtheenSection() {
+  return (
+    <section className="py-10 px-10 bg-[#f2f5fa] flex justify-between items-center  w-full">
+      <div
+        className="w-[50%] space-y-5   h-full
+    "
+      >
+        <h1 className="text-[48px] font-semibold">
+          Drive your business forward by empowering your talent
+        </h1>
+        <p>
+          Train teams with industry-leading experts and universities, enhanced
+          by AI tools and recognized credentials.
+        </p>
+        <div className="w-[50%]">
+          <PrimaryButton className="" title="Discover Coursera for Business" />
+        </div>
+        <div>
+          <span>Upskill a small team?</span>{" "}
+          <span className="text-primary underline">
+            Check out coursera for Teams
+          </span>
+        </div>
+      </div>
+      <div className="w-[50%] h- px-10 grid grid-cols-3  py-8   ">
+        {Array.from({ length: 9 }).map((_, i) => (
+          <div
+            key={i}
+            className="border px-10 py-10  flex justify-center items-center"
+          >
+            <img
+              className=""
+              src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/13nB6DdjBJdV5aWWWB5DbH/115574ebbc6de3dffd98daed665dc736/loreal.svg?auto=format%2Ccompress&dpr=1&w=60%25&h=18"
+              alt="Lorem"
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function twelvethSection() {
+  return (
+    <section className="py-10 px-36 bg-background min-h-[150vh] w-full">
+      <div className="w-full flex py-4 justify-center flex-col items-center h-[150vh]  ">
+        <div>
+          <h1 className="text-[44px] font-semibold">
+            From the Coursera community
+          </h1>
+          <h3 className="text-[28px]">
+            162+ million people have already joined Coursera
+          </h3>
+        </div>
+        <div className="  flex w-full min-h-[100vh]">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="w-[35%]  py-10 h-full px-2 ">
+              <div className="flex  justify-center  items-center ">
+                <img
+                  src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/N4qrT1XIveNL5SMHSkjTH/b57854e9246bd3aa9fe9ebc51ce650d1/Circle_Kenia.png?auto=format%2Ccompress&dpr=1&w=202&h=202&q=40"
+                  alt="Image of girl"
+                  className=" h-full w-48"
+                />
+              </div>
+              <div className="text-center space-y-3">
+                <h3 className="font-semibold text-[#382d8b] text-[28px]">
+                  Kenia R.
+                </h3>
+                <h5 className="text-[16px]  text-secondary">United States</h5>
+                <div className="flex justify-center items-center">
+                  <div className="text-center w-[4rem] h-[2px] bg-[#2a73cc]"></div>
+                </div>
+              </div>
+              <div className="py-4">
+                <p className="text-[20px] text-center">
+                  “Being a mother — especially a working mother means I’m
+                  constantly trying to juggle my schedule, my kids’ schedules,
+                  and work. I am very grateful for the flexible and remote
+                  learning programs that Coursera has to offer.”
+                </p>
+              </div>
+            </div>
           ))}
         </div>
-        <div className="flex gap-2">
-          <div className="w-[150px]">
-            <PrimaryButton title="Show 8 more" className="" />
-          </div>
-          <div className="w-[150px]">
-            <SecondaryButton title="View All"  />
+      </div>
+    </section>
+  );
+}
+
+function elevnthSection() {
+  return (
+    <section className="w-full px-5   inline-block relative pb-5  bg-[#ebf3ff]">
+      <div className="  justify-center relative items-center flex flex-col h-full">
+        {/* Wrapper div to force height adjustment */}
+        <div
+          className="relative w-[50%] flex justify-center items-center"
+          style={{ paddingTop: "500px" }}
+        >
+          {/* Image Container */}
+          <div className="images absolute   -top-8  w-[540px] h-[490px]">
+            <img
+              src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/6xXERT0XZPJDXgjPzr8Bve/d858e0cda1a5e5df2cb8accd65d5c1b7/outcomes.png?auto=format%2Ccompress&dpr=1&w=606&h=553&q=40"
+              className="w-full h-full"
+              alt="image of gallery"
+            />
           </div>
         </div>
-      </section>
-    </div>
+        <div className="w-[50%] flex justify-center items-center flex-col px-8 space-y-4">
+          <h1 className="text-[48px] font-bold ">
+            Learner outcomes on Coursera
+          </h1>
+          <p className="text-[20px]">
+            <span className="text-[#373a3c] font-bold">
+              77% of learners report career benefits
+            </span>{" "}
+            <span className="text-[#373a3c]">
+              {" "}
+              , such as new skills, increased pay, and new job opportunities.
+            </span>{" "}
+            <span className="text-primary underline underline-offset-4">
+              2023 Coursera Learner Outcomes Report
+            </span>
+          </p>
+          <div className="w-full">
+            <div className="w-[190px]">
+              <PrimaryButton className="" title="Join for Free" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TenthSection() {
+  return (
+    <section className="w-full px-10 min-h-[30rem] py-[28px] bg-background]">
+      <h1 className="text-[44px]">Explore Coursera</h1>
+
+      <div className="py-8 grid grid-cols-3 gap-4">
+        {Array.from({ length: 9 }).map((_, i) => (
+          <ExploreCard key={i} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ninthSection() {
+  return (
+    <section className="px-10  py-4">
+      <span className="text-xs ">
+        <sup>1</sup> Each university determines admission and the number of
+        pre-approved prior learning credits that may count toward the degree
+        requirements according to institutional policies, which may consider any
+        existing credits you may have.
+      </span>
+    </section>
+  );
+}
+
+function eightSection() {
+  return (
+    <section className="w-full px-10 min-h-[30rem] py-[28px] bg-background]">
+      <div className="top headings">
+        <h3 className="text-[20px] font-semibold">Degree Programs</h3>
+        <h1 className="text-[44px]">Get a head start on a degree today</h1>
+        <p className="text-[20px]">
+          With these programs, you can build valuable skills, earn career
+          credentials, and make progress toward a degree before you even enroll.
+        </p>
+      </div>
+      <div className="py-4 grid-cols-4 grid gap-8">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <Card key={i} />
+        ))}
+      </div>
+      <div className="flex gap-2">
+        <div className="w-[150px]">
+          <PrimaryButton title="Show 8 more" className="" />
+        </div>
+        <div className="w-[150px]">
+          <SecondaryButton title="View All" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function seventhSection() {
+  return (
+    <section className="w-full px-10 min-h-[30rem] py-[28px] bg-background]">
+      <div className="top headings">
+        <h3 className="text-[20px] font-semibold">100% Free</h3>
+        <h1 className="text-[44px]">Start learning with free courses</h1>
+        <p className="text-[20px]">
+          Explore free online courses from the world's top universities and
+          companies.
+        </p>
+      </div>
+      <div className="py-4 grid-cols-4 grid gap-8">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <Card key={i} />
+        ))}
+      </div>
+      <div className="flex gap-2">
+        <div className="w-[150px]">
+          <PrimaryButton title="Show 8 more" className="" />
+        </div>
+        <div className="w-[150px]">
+          <SecondaryButton title="View All" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function sixthSection() {
+  return (
+    <section className="w-full px-10 min-h-[30rem] py-[28px] bg-background]">
+      <div className="top headings">
+        <h3 className="text-[20px] font-semibold">
+          Courses and Professional Certificates
+        </h3>
+        <h1 className="text-[44px]">New on Coursera</h1>
+        <p className="text-[20px]">
+          Explore our newest programs, focused on delivering in-demand skills.
+        </p>
+      </div>
+      <div className="py-4 grid-cols-4 grid gap-8">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <Card key={i} />
+        ))}
+      </div>
+      <div className="flex gap-2">
+        <div className="w-[150px]">
+          <PrimaryButton title="Show 8 more" className="" />
+        </div>
+        <div className="w-[150px]">
+          <SecondaryButton title="View All" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function fifthSection() {
+  return (
+    <section className="w-full px-10 min-h-[20rem] py-[50px] bg-background]">
+      <div className="bg-[#f0f6ff] p-12 w-full  rounded-xl">
+        <div className="space-y-4">
+          <h1 className="font-semibold text-2xl">
+            Popular certificate, new AI skills
+          </h1>
+          <p className="text-sm">
+            Get job-ready with Google Professional Certificates—now including AI
+            skills.
+          </p>
+        </div>
+        <div className="pt-16 grid grid-cols-3 justify-between gap-10">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <PopularCard key={i} />
+          ))}
+          <div className="w-[8rem]">
+            <PrimaryButton className="" title="View All" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function forthSection() {
+  return (
+    <section className="w-full px-10 min-h-[30rem] py-[20px] bg-background]">
+      <div className="top headings">
+        <h3 className="text-[20px] font-semibold">
+          Specialization and Professional Certificates
+        </h3>
+        <h1 className="text-[44px]">Most Popular Certificates</h1>
+        <p className="text-[20px]">
+          Explore our most popular programs, get job-ready for an in-demand
+          career.
+        </p>
+      </div>
+      <div className="py-4 grid-cols-4 grid gap-8">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <Card key={i} />
+        ))}
+      </div>
+      <div className="flex gap-2">
+        <div className="w-[150px]">
+          <PrimaryButton title="Show 8 more" className="" />
+        </div>
+        <div className="w-[150px]">
+          <SecondaryButton title="View All" />
+        </div>
+      </div>
+    </section>
   );
 }
 
