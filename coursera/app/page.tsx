@@ -45,79 +45,356 @@ export default function Home() {
     },
   ];
   return (
-    <div className="w-full min-h-screen ">
+    <div className=" w-full min-h-screen ">
+      <div className=" hidden md:flex w-full text-white  gap-x-5 pl-14 items-center h-[40px] bg-black">
+        <h3 className="hover:bg-white hover:text-black py-4">
+          For Individuals
+        </h3>
+        <h3 className="hover:bg-white hover:text-black py-4">For Businesses</h3>
+        <h3 className="hover:bg-white hover:text-black py-4">
+          For Universities
+        </h3>
+        <h3 className="hover:bg-white hover:text-black py-4">
+          For Governments
+        </h3>
+      </div>
       <Navbar />
 
-      {firstSecion()}
-      {secondSection()}
-      {thirdSection(roles)}
-      {forthSection()}
-      {fifthSection()}
-      {sixthSection()}
-      {seventhSection()}
-      {eightSection()}
-      {ninthSection()}
-      {TenthSection()}
-      {elevnthSection()}
-      {twelvethSection()}
-      {thirtheenSection()}
-      {fourthteenSection()}
+      <div className="w-full py-4 space-y-4 min-h-screen px-4 text-center ">
+        <h1 className="text-[48px] leading-tight font-semibold">
+          Learn without limits
+        </h1>
+        <p>
+          Start, switch or advance your carrer with more than 7000 courses,
+          Professional Certificates, and degree from world-class universities
+          and companies.
+        </p>
+        <div className="space-y-4">
+          <button className="text-white rounded-md w-full bg-primary py-2 px-2">
+            Join For Free
+          </button>
+          <button className="text-primary rounded-md w-full bg-background border border-primary  py-2 px-2">
+            Try Coursera for Business
+          </button>
+        </div>
+      </div>
+
+      <div className="w-full py-4 bg-[#F2F5FA] min-h-[50vh] ">
+        <p className="text-[16px] px-10 font-semibold text-center">
+          We collaborate with{" "}
+          <span className="text-primary underline">
+            350+ leading universities and companies
+          </span>
+        </p>
+      </div>
+
+      <div className="py-10 px-4">
+        <h1 className="text-[20px] font-bold">
+          Lunch a new career in as little as 6 months
+        </h1>
+        <button
+          className="text-primary text-[14px] underline font-semibold
+        "
+        >
+          View all roles
+        </button>
+        <div className=" flex flex-row gap-4 w-full py-6 overflow-x-auto">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0  w-[240px] space-y-4 px-4 border py-6 rounded-2xl min-h-[80vh] "
+            >
+              <div className="space-y-1">
+                <h2 className="text-[18px] font-semibold">Project Manager</h2>
+                <p className="text-[12px] text-secondary">
+                  Oversee the planning and execution of projects to ensure
+                  they're successful
+                </p>
+              </div>
+              <div className="w-full h-[0.1px] bg-secondary"></div>
+              <div>
+                <h3 className="text-[12px]">Median Salary </h3>
+                <div>
+                  <span className="text-[12px]"> All Occupations</span>
+                  <div className="w-[50%] rounded-md flex items-center px-1 py-1 text-secondary bg-gray-100">
+                    <span className="text-xs font-bold">$37,960</span>
+                  </div>
+                  <div>
+                    <span className="text-[12px]">Project Manager</span>
+                    <div className="rounded-md flex items-center px-1 py-1 text-white bg-purple-900">
+                      <span className="text-xs font-bold">$37,960</span>
+                    </div>
+                    <div className="py-2">
+                      <p className="text-[12px] text-secondary">
+                        Job Openings:336,402**
+                      </p>
+                      <p className="text-[12px] text-secondary">
+                        Projected 10 year growth: +11.1%**
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-[12px] text-primary font-semibold">
+                        See recommendations
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="w-full flex justify-between px-2 ">
+            <div className="px-1  w-[60%] rounded-2xl flex justify-evenly  items-center bg-slate-100">
+              <div className="size-3 rounded-full bg-slate-600 "></div>
+              <div className="size-3 rounded-full bg-slate-600 "></div>
+              <div className="size-3 rounded-full bg-slate-600 "></div>
+              <div className="size-3 rounded-full bg-slate-600 "></div>
+              <div className="size-3 rounded-full bg-slate-600 "></div>
+            </div>
+            <div className="flex gap-x-2">
+              <div className="size-7 rounded-full bg-red-200"></div>
+              <div className="size-7 rounded-full bg-red-400"></div>
+            </div>
+          </div>
+      </div>
+
+      {/* Desktop view */}
+      {/* {
+        <>
+          {firstSecion()}
+          {secondSection()}
+          {thirdSection(roles)}
+          {forthSection()}
+          {fifthSection()}
+          {sixthSection()}
+          {seventhSection()}
+          {eightSection()}
+          {ninthSection()}
+          {TenthSection()}
+          {elevnthSection()}
+          {twelvethSection()}
+          {thirtheenSection()}
+          {fourthteenSection()}
+          {footer()}
+        </>
+      } */}
     </div>
   );
 }
 
-function fourthteenSection() {
-  return <section className="py-10 px-10  bg-background    w-full">
-    <div className="flex px-12 h-[135vh] justify-between items-center">
-      <div className="w-[50%] h-full ">
-        <img
-          src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera_assets.s3.amazonaws.com/front-page-rebrand/secondary-consumer-cta/Image-Next-Step.png?auto=format%2Ccompress&dpr=1&w=471&h=330&q=40"
-          alt="image of girl"
-          className="w-full " />
-      </div>
-      <div className="w-[50%] flex flex-col gap-y-4 h-full px-24 pt-10 ">
-        <h1 className="text-[44px] font-semibold ">
-          Take the next step toward your personal and professional goals
-          with Coursera.
-        </h1>
-        <span className="text-[16px]">
-          Join now to receive personalized recommendations from the full
-          Coursera catalog.
-        </span>
-        <div className="w-[200px]">
-          <PrimaryButton className="" title="Join for Free" />
+function footer() {
+  return (
+    <section className="py-10 min-h-screen  gap-y-20 px-10 flex flex-col   bg-[#f5f5f5] w-full">
+      <div className="grid gap-10 grid-cols-4">
+        {" "}
+        <div>
+          <h1 className="text-[20px] font-bold py-2">Get Started with AI</h1>
+          <ul className="text-[14px] space-y-4">
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+          </ul>
+        </div>
+        <div>
+          <h1 className="font-bold py-2 text-[20px]">
+            Popular Carrer Certificate
+          </h1>
+          <ul className="text-[14px] space-y-4">
+            <li>Adobe Content Creator Professional Certificate</li>
+            <li>Adobe Content Creator Professional Certificate</li>
+            <li>Adobe Content Creator Professional Certificate</li>
+            <li>Adobe Content Creator Professional Certificate</li>
+            <li>Adobe Content Creator Professional Certificate</li>
+            <li>Adobe Content Creator Professional Certificate</li>
+          </ul>
+        </div>
+        <div>
+          <h1 className="text-[20px] font-bold py-2">Popular Subjects</h1>
+          <ul className="text-[14px] space-y-4">
+            <li>Artificial Intelligence</li>
+            <li>Artificial Intelligence</li>
+            <li>Artificial Intelligence</li>
+            <li>Artificial Intelligence</li>
+            <li>Artificial Intelligence</li>
+            <li>Artificial Intelligence</li>
+            <li>Artificial Intelligence</li>
+            <li>Artificial Intelligence</li>
+            <li>Artificial Intelligence</li>
+          </ul>
+        </div>
+        <div>
+          <h1 className="text-[20px] font-bold py-2">Popular Resources</h1>
+          <ul className="text-[14px] space-y-4">
+            <li>High-Income Skills Worth Learning</li>
+            <li>High-Income Skills Worth Learning</li>
+            <li>High-Income Skills Worth Learning</li>
+            <li>High-Income Skills Worth Learning</li>
+            <li>High-Income Skills Worth Learning</li>
+            <li>High-Income Skills Worth Learning</li>
+            <li>High-Income Skills Worth Learning</li>
+            <li>High-Income Skills Worth Learning</li>
+            <li>High-Income Skills Worth Learning</li>
+          </ul>
         </div>
       </div>
-    </div>
-    <div className="w-full  h-[1px] bg-secondary"></div>
-    <div className="text-secondary  space-y-1  pt-8 text-xs">
-      <div>
-        <span>
-          * Employment, Wages, and Projected Change in Employment by Typical
-          Entry-level Education : U.S. Bureau of Labor Statistics. Sept.
-          2022, www.bls.gov/emp/tables/education-summary.htm{" "}
-        </span>
+      <div className="grid gap-10 grid-cols-4">
+        {" "}
+        <div>
+          <h1 className="text-[20px] font-bold py-2">Coursera</h1>
+          <ul className="text-[14px] space-y-4">
+            <li>About</li>
+            <li>About</li>
+            <li>About</li>
+            <li>About</li>
+            <li>About</li>
+            <li>About</li>
+          </ul>
+        </div>
+        <div>
+          <h1 className="text-[20px] font-bold py-2">
+            Popular Carrer Certificate
+          </h1>
+          <ul className="text-[14px] space-y-4">
+            <li>Learners</li>
+            <li>Learners</li>
+            <li>Learners</li>
+            <li>Learners</li>
+            <li>Learners</li>
+            <li>Learners</li>
+          </ul>
+        </div>
+        <div>
+          <h1 className="text-[20px] font-bold py-2">Popular Subjects</h1>
+          <ul className="text-[14px] space-y-4">
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+            <li>AWS & DLAI GenAI with LLMs Course</li>
+          </ul>
+        </div>
+        <div>
+          <h1 className="text-[20px] font-bold py-2">More</h1>
+          <ul className="text-[14px] space-y-4">
+            <li>Place</li>
+            <li>Place</li>
+            <li>Place</li>
+            <li>Place</li>
+            <li>Place</li>
+            <li>Place</li>
+            <li>Place</li>
+          </ul>
+        </div>
       </div>
+
       <div>
-        <span>
-          ** Median salary and job opening data are sourced from United
-          States Lightcast™ Job Postings Report. Data for job roles relevant
-          to featured programs (7/1/2022 - 6/30/2023) Median salary (median
-          with 0-2 years experience for UX Designer) and job opening data
-          are sourced from United States Lightcast™ Job Postings Report.
-          Data for job roles relevant to featured programs (7/1/2022 -
-          6/30/2023)
-        </span>
+        <div className="w-full h-[0.1px]  bg-gray-400"></div>
+        <div className="w-full flex py-16 items-center justify-between ">
+          <div className="text-[14px] text-secondary">
+            &copy 2024 Coursera Inc. All rights reserced
+          </div>
+          <div className="flex gap-5">
+            <div>
+              <img
+                src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/footer/facebook.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/footer/linkedin.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/footer/twitter.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/footer/youtube.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/footer/instagram.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera_assets.s3.amazonaws.com/images/9b7e964107839c77644d7e7d15035b73.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <span>
-          *** Growth rate data is sourced from United States Lightcast™ Job
-          Postings Report. Data for job roles relevant to featured programs
-          (7/1/2022 - 6/30/2023)
-        </span>
+    </section>
+  );
+}
+
+function fourthteenSection() {
+  return (
+    <section className="py-10 px-10  bg-background    w-full">
+      <div className="flex px-12 h-[135vh] justify-between items-center">
+        <div className="w-[50%] h-full ">
+          <img
+            src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera_assets.s3.amazonaws.com/front-page-rebrand/secondary-consumer-cta/Image-Next-Step.png?auto=format%2Ccompress&dpr=1&w=471&h=330&q=40"
+            alt="image of girl"
+            className="w-full "
+          />
+        </div>
+        <div className="w-[50%] flex flex-col gap-y-4 h-full px-24 pt-10 ">
+          <h1 className="text-[44px] font-semibold ">
+            Take the next step toward your personal and professional goals with
+            Coursera.
+          </h1>
+          <span className="text-[16px]">
+            Join now to receive personalized recommendations from the full
+            Coursera catalog.
+          </span>
+          <div className="w-[200px]">
+            <PrimaryButton className="" title="Join for Free" />
+          </div>
+        </div>
       </div>
-    </div>
-  </section>;
+      <div className="w-full  h-[1px] bg-secondary"></div>
+      <div className="text-secondary  space-y-1  pt-8 text-xs">
+        <div>
+          <span>
+            * Employment, Wages, and Projected Change in Employment by Typical
+            Entry-level Education : U.S. Bureau of Labor Statistics. Sept. 2022,
+            www.bls.gov/emp/tables/education-summary.htm{" "}
+          </span>
+        </div>
+        <div>
+          <span>
+            ** Median salary and job opening data are sourced from United States
+            Lightcast™ Job Postings Report. Data for job roles relevant to
+            featured programs (7/1/2022 - 6/30/2023) Median salary (median with
+            0-2 years experience for UX Designer) and job opening data are
+            sourced from United States Lightcast™ Job Postings Report. Data for
+            job roles relevant to featured programs (7/1/2022 - 6/30/2023)
+          </span>
+        </div>
+        <div>
+          <span>
+            *** Growth rate data is sourced from United States Lightcast™ Job
+            Postings Report. Data for job roles relevant to featured programs
+            (7/1/2022 - 6/30/2023)
+          </span>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function thirtheenSection() {
