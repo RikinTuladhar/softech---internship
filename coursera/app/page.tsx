@@ -1,3 +1,4 @@
+"use client"
 import PrimaryButton from "@/components/buttons/PrimaryButton";
 import SecondaryButton from "@/components/buttons/SecondaryButton";
 import Navbar from "@/components/navbar/Navbar";
@@ -8,8 +9,13 @@ import role from "@/types/role";
 import Card from "@/components/card/Card";
 import PopularCard from "@/components/card/PopularCard";
 import ExploreCard from "@/components/card/ExploreCard";
-
+import { ChevronRight } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
+import { useEffect, useState } from "react";
 export default function Home() {
+
+
+
   const roles: role[] = [
     {
       id: 1,
@@ -44,6 +50,16 @@ export default function Home() {
       title: "UX Designer ",
     },
   ];
+
+  const [isMobileView, setIsMobileView] = useState(false)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobileView(window.innerWidth < 400)
+    } else {
+      setIsMobileView(false)
+    }
+  }, [])
+
   return (
     <div className=" w-full min-h-screen ">
       <div className=" hidden md:flex w-full text-white  gap-x-5 pl-14 items-center h-[40px] bg-black">
@@ -59,137 +75,288 @@ export default function Home() {
         </h3>
       </div>
       <Navbar />
+      {isMobileView ? mobileView() : desktopView(roles)}
 
-      <div className="w-full py-4 space-y-4 min-h-screen px-4 text-center ">
-        <h1 className="text-[48px] leading-tight font-semibold">
-          Learn without limits
-        </h1>
-        <p>
-          Start, switch or advance your carrer with more than 7000 courses,
-          Professional Certificates, and degree from world-class universities
-          and companies.
-        </p>
-        <div className="space-y-4">
-          <button className="text-white rounded-md w-full bg-primary py-2 px-2">
-            Join For Free
-          </button>
-          <button className="text-primary rounded-md w-full bg-background border border-primary  py-2 px-2">
-            Try Coursera for Business
-          </button>
-        </div>
-      </div>
 
-      <div className="w-full py-4 bg-[#F2F5FA] min-h-[50vh] ">
-        <p className="text-[16px] px-10 font-semibold text-center">
-          We collaborate with{" "}
-          <span className="text-primary underline">
-            350+ leading universities and companies
-          </span>
-        </p>
-      </div>
+    </div >
+  );
+}
 
-      <div className="py-10 px-4">
-        <h1 className="text-[20px] font-bold">
-          Lunch a new career in as little as 6 months
-        </h1>
-        <button
-          className="text-primary text-[14px] underline font-semibold
-        "
-        >
-          View all roles
+function desktopView(roles) {
+  return (<>
+    {firstSecion()}
+    {secondSection()}
+    {thirdSection(roles)}
+    {forthSection()}
+    {fifthSection()}
+    {sixthSection()}
+    {seventhSection()}
+    {eightSection()}
+    {ninthSection()}
+    {TenthSection()}
+    {elevnthSection()}
+    {twelvethSection()}
+    {thirtheenSection()}
+    {fourthteenSection()}
+    {footer()}
+  </>)
+}
+
+function mobileView() {
+  return (<div>
+
+
+    <div className="w-full py-4 space-y-4 min-h-screen px-4 text-center ">
+      <h1 className="text-[48px] leading-tight font-semibold">
+        Learn without limits
+      </h1>
+      <p>
+        Start, switch or advance your carrer with more than 7000 courses,
+        Professional Certificates, and degree from world-class universities
+        and companies.
+      </p>
+      <div className="space-y-4">
+        <button className="text-white rounded-md w-full bg-primary py-2 px-2">
+          Join For Free
         </button>
-        <div className=" flex flex-row gap-4 w-full py-6 overflow-x-auto">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0  w-[240px] space-y-4 px-4 border py-6 rounded-2xl min-h-[80vh] "
-            >
-              <div className="space-y-1">
-                <h2 className="text-[18px] font-semibold">Project Manager</h2>
-                <p className="text-[12px] text-secondary">
-                  Oversee the planning and execution of projects to ensure
-                  they're successful
-                </p>
-              </div>
-              <div className="w-full h-[0.1px] bg-secondary"></div>
+        <button className="text-primary rounded-md w-full bg-background border border-primary  py-2 px-2">
+          Try Coursera for Business
+        </button>
+      </div>
+    </div>
+
+    <div className="w-full py-4 bg-[#F2F5FA] min-h-[50vh] ">
+      <p className="text-[16px] px-10 font-semibold text-center">
+        We collaborate with{" "}
+        <span className="text-primary underline">
+          350+ leading universities and companies
+        </span>
+      </p>
+    </div>
+
+    <div className="py-10 px-4">
+      <h1 className="text-[20px] font-bold">
+        Lunch a new career in as little as 6 months
+      </h1>
+      <button
+        className="text-primary text-[14px] underline font-semibold
+       "
+      >
+        View all roles
+      </button>
+      <div className=" flex flex-row gap-4 w-full py-6 overflow-x-auto">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div
+            key={i}
+            className="flex-shrink-0  w-[240px] space-y-4 px-4 border py-6 rounded-2xl min-h-[80vh] "
+          >
+            <div className="space-y-1">
+              <h2 className="text-[18px] font-semibold">Project Manager</h2>
+              <p className="text-[12px] text-secondary">
+                Oversee the planning and execution of projects to ensure
+                they're successful
+              </p>
+            </div>
+            <div className="w-full h-[0.1px] bg-secondary"></div>
+            <div>
+              <h3 className="text-[12px]">Median Salary </h3>
               <div>
-                <h3 className="text-[12px]">Median Salary </h3>
+                <span className="text-[12px]"> All Occupations</span>
+                <div className="w-[50%] rounded-md flex items-center px-1 py-1 text-secondary bg-gray-100">
+                  <span className="text-xs font-bold">$37,960</span>
+                </div>
                 <div>
-                  <span className="text-[12px]"> All Occupations</span>
-                  <div className="w-[50%] rounded-md flex items-center px-1 py-1 text-secondary bg-gray-100">
+                  <span className="text-[12px]">Project Manager</span>
+                  <div className="rounded-md flex items-center px-1 py-1 text-white bg-purple-900">
                     <span className="text-xs font-bold">$37,960</span>
                   </div>
+                  <div className="py-2">
+                    <p className="text-[12px] text-secondary">
+                      Job Openings:336,402**
+                    </p>
+                    <p className="text-[12px] text-secondary">
+                      Projected 10 year growth: +11.1%**
+                    </p>
+                  </div>
                   <div>
-                    <span className="text-[12px]">Project Manager</span>
-                    <div className="rounded-md flex items-center px-1 py-1 text-white bg-purple-900">
-                      <span className="text-xs font-bold">$37,960</span>
-                    </div>
-                    <div className="py-2">
-                      <p className="text-[12px] text-secondary">
-                        Job Openings:336,402**
-                      </p>
-                      <p className="text-[12px] text-secondary">
-                        Projected 10 year growth: +11.1%**
-                      </p>
-                    </div>
-                    <div>
-                      <span className="text-[12px] text-primary font-semibold">
-                        See recommendations
-                      </span>
-                    </div>
+                    <span className="text-[12px] text-primary font-semibold">
+                      See recommendations
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+        ))}
+      </div>
+      <section className="w-full flex justify-between gap-x-4 py-2 ">
+        <div className="px-1  w-[80%] rounded-2xl flex justify-evenly  items-center bg-slate-100">
+          <div className="w-[10px] h-[10px] rounded-full bg-slate-600 "></div>
+          <div className="w-[10px] h-[10px] rounded-full bg-slate-600 "></div>
+          <div className="w-[10px] h-[10px] rounded-full bg-slate-600 "></div>
+          <div className="w-[10px] h-[10px] rounded-full bg-slate-600 "></div>
+          <div className="w-[10px] h-[10px] rounded-full bg-slate-600 "></div>
         </div>
-        <div className="w-full flex justify-between px-2 ">
-            <div className="px-1  w-[60%] rounded-2xl flex justify-evenly  items-center bg-slate-100">
-              <div className="size-3 rounded-full bg-slate-600 "></div>
-              <div className="size-3 rounded-full bg-slate-600 "></div>
-              <div className="size-3 rounded-full bg-slate-600 "></div>
-              <div className="size-3 rounded-full bg-slate-600 "></div>
-              <div className="size-3 rounded-full bg-slate-600 "></div>
+        <div className="flex gap-x-2">
+          <div className="size-8 rounded-full bg-slate-100 flex justify-center items-center"><ChevronLeft className=" text-secondary" /></div>
+          <div className="size-8 rounded-full border border-primary flex justify-center items-center"> <ChevronRight className="text-secondary" /></div>
+        </div>
+      </section>
+
+      <section className=" w-full  py-8">
+        {/* heading  */}
+        <div className="space-y-2"><h3 className="font-bold">Specializations and Professional Certificates</h3>
+          <h1 className="text-3xl">Most Popular Certificates</h1>
+          <p>Explore our most popular programs, get job-ready for an in-demand career.</p></div>
+
+        <div className="w-full card-viwer grid py-4 grid-cols-1 gap-4">
+          {Array.from({ length: 6 }).map((data, i) => (
+            <div key={i} className="w-full min-h-32  px-2 py-2 rounded-xl border-2 border-gray-400">
+              <div className="w-full h-[20%] ">
+                <div className=" w-fit px-2  my-2 ml-1 rounded-md  border  ">
+                  <h3 className="text-[14px] font-semibold ">New AI Skills</h3>
+                </div>
+
+              </div>
+              <div className="w-full  flex justify-between pr-3">
+                <div className="w-full  space-y-2 ">
+                  <div className="size-6 flex gap-x-2 items-center"><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/4a/cb36835ae3421187080898a7ecc11d/Google-G_360x360.png?auto=format%2Ccompress&dpr=3&w=24&h=24" className="w-full h-full" alt="image of google" />
+
+                    <div className="text-xs text-secondary">Google</div>
+                  </div>
+                  <h4 className="text-xs font-bold">Google Data Analytics</h4>
+
+                  <div className="flex">
+
+                    <p className="text-primary text-xs">Build toward a degree</p>
+                  </div>
+
+                  <p className="text-xs text-secondary">Professional Certificate</p>
+                </div>
+                <div className="w-[20%] ">
+                  <div className="size-14 overflow-hidden rounded-md">
+                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/41/4d3d7c05fb42729c9d90352e072ca3/1060x596_GCC-photos_Karrim.png?auto=format%2Ccompress%2C%20enhance&dpr=1&w=320&h=180&fit=crop&q=50&crop=faces" className="rounded-lg w-full h-full object-cover" alt="image of person" />
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <div className="flex gap-x-2">
-              <div className="size-7 rounded-full bg-red-200"></div>
-              <div className="size-7 rounded-full bg-red-400"></div>
+          ))}
+          <div className="button pt-4 space-y-4">
+            <div className="bg-primary text-center rounded-md text-xs font-semibold text-white w-full py-2">
+              Show 8 more
+            </div>
+            <div className="bg-white border border-primary rounded-md text-xs font-semibold text-primary text-center w-full py-2">
+              View All
             </div>
           </div>
+        </div>
+
+
+      </section>
+
+      <section className="w-full min-h-28 bg-[#f0f6ff] px-4 space-y-4 rounded-xl py-8">
+        <h1 className="text-lg font-semibold">Popular certificate, new AI skills</h1>
+        <p className="text-xs">Get job-ready with google Professional Certificate-now including AI skills</p>
+        <button className="bg-primary text-white px-8 rounded-md py-2">
+          View all
+        </button>
+      </section>
+      <div className="py-8">
+        <p className="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut iusto repellat pariatur atque. Enim non natus molestias repellendus, libero commodi a accusantium nihil.</p>
       </div>
 
-      {/* Desktop view */}
-      {/* {
-        <>
-          {firstSecion()}
-          {secondSection()}
-          {thirdSection(roles)}
-          {forthSection()}
-          {fifthSection()}
-          {sixthSection()}
-          {seventhSection()}
-          {eightSection()}
-          {ninthSection()}
-          {TenthSection()}
-          {elevnthSection()}
-          {twelvethSection()}
-          {thirtheenSection()}
-          {fourthteenSection()}
-          {footer()}
-        </>
-      } */}
-    </div>
-  );
+      <section>
+        <h1 className="text-2xl font-semibold">Explore Coursera</h1>
+        <div className="py-4 grid grid-cols-1 gap-4">
+          {Array.from({ length: 6 }).map((item, i) => (
+            <ExploreCard key={i} />
+          ))}
+        </div>
+
+      </section>
+      {elevnthSection()}
+
+      <section className="space-y-4 w-full min-h-80  py-10 px-2">
+        <h1 className="font-semibold text-center text-xl">From the Coursera community</h1>
+        <p className="text-xs text-center">162+ million people have already joined Coursera</p>
+        <div className="grid grid-flow-col gap-2 overflow-x-auto">
+          {/* cards  */}
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="w-[250px]  py-10 h-full px-2 border rounded-lg ">
+              <div className="flex  justify-center  items-center ">
+                <img
+                  src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/N4qrT1XIveNL5SMHSkjTH/b57854e9246bd3aa9fe9ebc51ce650d1/Circle_Kenia.png?auto=format%2Ccompress&dpr=1&w=202&h=202&q=40"
+                  alt="Image of girl"
+                  className=" h-full w-48"
+                />
+              </div>
+              <div className="py-4 space-y-8 px-4 pr-8">
+                <p className="text-sm md:text-[20px] text-left md:text-center">
+                  “Being a mother — especially a working mother means I’m
+                  constantly trying to juggle my schedule, my kids’ schedules,
+                  and work. I am very grateful for the flexible and remote
+                  learning programs that Coursera has to offer.”
+                </p>
+                <div className="flex flex-col ">
+                  <span className="font-semibold text-sm text-black">Kenai R.</span>
+                  <span className="text-secondary text-xs">United States</span>
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+        <div className="w-full flex justify-between  items-center ">
+          <div className="w-fit px-2 h-[30px] py-4 flex gap-1 justify-center items-center  rounded-xl ">
+            <div className="size-3 bg-slate-400 rounded-full"></div>
+            <div className="size-3 bg-slate-400 rounded-full"></div>
+            <div className="size-3 bg-slate-400 rounded-full"></div>
+          </div>
+          <div className="flex gap-x-2">
+            <div className="size-8 rounded-full bg-slate-100 flex justify-center items-center"><ChevronLeft className=" text-secondary" /></div>
+            <div className="size-8 rounded-full border border-primary flex justify-center items-center"> <ChevronRight className="text-secondary" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-[#f0f6ff] pb-8 space-y-4 px-2 min-h-96">
+        <div className="grid gap-4 grid-cols-3 py-10 justify-center place-items-center items-center grid-rows-3  ">
+          {Array.from({ length: 9 }).map((_, i) => (
+            <div key={i} className="w-[60px] h-[50px] bg-gray-300">
+
+            </div>
+          ))}
+
+        </div>
+        <div><h1 className="text-xl font-semibold">Drive your business forward by empowering your talent</h1>
+        </div>
+        <div><p className="text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas dolorem perferendis, ex ratione tempore laborum quisquam dolores et repudiandae sapiente necessitatibus, pariatur velit.</p>
+        </div>
+        <div><PrimaryButton className="" title="Discover Coursera for Business" /></div>
+        <div>
+          <p className="text-sm">Upskill as small team? <span className="text-primary underline">Check out Coursera for Teams  </span></p>
+        </div>
+      </section>
+
+      <section className="w-full py-8 px-2">
+        <p className="text-xs text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam illo hic placeat fugit quaerat voluptatibus. Animi dolores placeat repellendus ipsum ullam necessitatibus, voluptatem iste! Optio, harum quo, et dignissimos repudiandae nulla architecto totam odio nostrum beatae voluptates fugiat praesentium rerum. Architecto incidunt mollitia inventore? Tenetur aspernatur dignissimos tempore officia quia consequatur non harum quas beatae, ea facere deleniti eligendi veniam exercitationem voluptatem impedit fugiat vel nisi cupiditate ipsa quos assumenda.
+        </p>
+      </section>
+
+      {footer()}
+    </div >
+  </div>)
 }
 
 function footer() {
   return (
-    <section className="py-10 min-h-screen  gap-y-20 px-10 flex flex-col   bg-[#f5f5f5] w-full">
-      <div className="grid gap-10 grid-cols-4">
+    <section className="py-4 md:py-10 min-h-screen  gap-y-20 px-4 md:px-10 flex flex-col   bg-[#f5f5f5] w-full">
+      <div className="grid gap-10 grid-cols-1 md:grid-cols-4">
         {" "}
         <div>
           <h1 className="text-[20px] font-bold py-2">Get Started with AI</h1>
-          <ul className="text-[14px] space-y-4">
+          <ul className="text-[12px] md:text-[14px] space-y-4">
             <li>AWS & DLAI GenAI with LLMs Course</li>
             <li>AWS & DLAI GenAI with LLMs Course</li>
             <li>AWS & DLAI GenAI with LLMs Course</li>
@@ -202,7 +369,7 @@ function footer() {
           <h1 className="font-bold py-2 text-[20px]">
             Popular Carrer Certificate
           </h1>
-          <ul className="text-[14px] space-y-4">
+          <ul className="text-[12px] md:text-[14px] space-y-4">
             <li>Adobe Content Creator Professional Certificate</li>
             <li>Adobe Content Creator Professional Certificate</li>
             <li>Adobe Content Creator Professional Certificate</li>
@@ -213,7 +380,7 @@ function footer() {
         </div>
         <div>
           <h1 className="text-[20px] font-bold py-2">Popular Subjects</h1>
-          <ul className="text-[14px] space-y-4">
+          <ul className="text-[12px] md:text-[14px] space-y-4">
             <li>Artificial Intelligence</li>
             <li>Artificial Intelligence</li>
             <li>Artificial Intelligence</li>
@@ -227,7 +394,7 @@ function footer() {
         </div>
         <div>
           <h1 className="text-[20px] font-bold py-2">Popular Resources</h1>
-          <ul className="text-[14px] space-y-4">
+          <ul className="text-[12px] md:text-[14px] space-y-4">
             <li>High-Income Skills Worth Learning</li>
             <li>High-Income Skills Worth Learning</li>
             <li>High-Income Skills Worth Learning</li>
@@ -240,11 +407,11 @@ function footer() {
           </ul>
         </div>
       </div>
-      <div className="grid gap-10 grid-cols-4">
+      <div className="grid gap-10 grid-cols-1 md:grid-cols-4">
         {" "}
         <div>
           <h1 className="text-[20px] font-bold py-2">Coursera</h1>
-          <ul className="text-[14px] space-y-4">
+          <ul className="text-[12px] md:text-[14px] space-y-4">
             <li>About</li>
             <li>About</li>
             <li>About</li>
@@ -257,7 +424,7 @@ function footer() {
           <h1 className="text-[20px] font-bold py-2">
             Popular Carrer Certificate
           </h1>
-          <ul className="text-[14px] space-y-4">
+          <ul className="text-[12px] md:text-[14px] space-y-4">
             <li>Learners</li>
             <li>Learners</li>
             <li>Learners</li>
@@ -268,7 +435,7 @@ function footer() {
         </div>
         <div>
           <h1 className="text-[20px] font-bold py-2">Popular Subjects</h1>
-          <ul className="text-[14px] space-y-4">
+          <ul className="text-[12px] md:text-[14px] space-y-4">
             <li>AWS & DLAI GenAI with LLMs Course</li>
             <li>AWS & DLAI GenAI with LLMs Course</li>
             <li>AWS & DLAI GenAI with LLMs Course</li>
@@ -279,7 +446,7 @@ function footer() {
         </div>
         <div>
           <h1 className="text-[20px] font-bold py-2">More</h1>
-          <ul className="text-[14px] space-y-4">
+          <ul className="text-[12px] md:text-[14px] space-y-4">
             <li>Place</li>
             <li>Place</li>
             <li>Place</li>
@@ -293,8 +460,17 @@ function footer() {
 
       <div>
         <div className="w-full h-[0.1px]  bg-gray-400"></div>
-        <div className="w-full flex py-16 items-center justify-between ">
-          <div className="text-[14px] text-secondary">
+        <div className="py-4">
+          <div className="block  py-2  md:hidden">
+            <h5 className="text-secondary font-semibold">Learn Anywhere</h5>
+          </div>
+          <div className="flex md:hidden py-2  gap-2">
+            <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d3njjcbhbojbot.cloudfront.net/web/images/icons/download_on_the_app_store_badge_en.svg?auto=format%2Ccompress&dpr=2&w=152&h=45&q=40" alt="Image of " className="w-[120px] " />
+            <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d3njjcbhbojbot.cloudfront.net/web/images/icons/en_generic_rgb_wo_45.png?auto=format%2Ccompress&dpr=2&w=152&h=45&q=40" alt="Image of " className="w-[120px] " />
+          </div>
+        </div>
+        <div className="w-full flex flex-col gap-4 md:gap-8 md:flex-row py-0 md:py-16 items-center justify-between ">
+          <div className="text-[12px] md:text-[14px] text-center md:text-left order-2 md:order-1 text-secondary">
             &copy 2024 Coursera Inc. All rights reserced
           </div>
           <div className="flex gap-5">
@@ -492,11 +668,11 @@ function elevnthSection() {
       <div className="  justify-center relative items-center flex flex-col h-full">
         {/* Wrapper div to force height adjustment */}
         <div
-          className="relative w-[50%] flex justify-center items-center"
-          style={{ paddingTop: "500px" }}
+          className="relative w-full md:w-[50%] md:pt-[500px] flex justify-center items-center pt-[300px]"
+        // style={{ paddingTop: "500px" }}
         >
           {/* Image Container */}
-          <div className="images absolute   -top-8  w-[540px] h-[490px]">
+          <div className="images absolute   top-0 md:-top-8  w-[280px]  md:w-[540px] md:h-[490px]">
             <img
               src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/6xXERT0XZPJDXgjPzr8Bve/d858e0cda1a5e5df2cb8accd65d5c1b7/outcomes.png?auto=format%2Ccompress&dpr=1&w=606&h=553&q=40"
               className="w-full h-full"
@@ -504,11 +680,11 @@ function elevnthSection() {
             />
           </div>
         </div>
-        <div className="w-[50%] flex justify-center items-center flex-col px-8 space-y-4">
-          <h1 className="text-[48px] font-bold ">
+        <div className="w-full md:w-[50%] flex justify-normal md:justify-center items-center flex-col px-0 md:px-8 space-y-4">
+          <h1 className="text-[22px] md:text-[48px] font-bold ">
             Learner outcomes on Coursera
           </h1>
-          <p className="text-[20px]">
+          <p className="text-[14px] md:text-[20px]">
             <span className="text-[#373a3c] font-bold">
               77% of learners report career benefits
             </span>{" "}
@@ -521,7 +697,7 @@ function elevnthSection() {
             </span>
           </p>
           <div className="w-full">
-            <div className="w-[190px]">
+            <div className="w-full md:w-[190px]">
               <PrimaryButton className="" title="Join for Free" />
             </div>
           </div>
